@@ -1,0 +1,296 @@
+
+   @import url('https://googleapis.com');
+
+   :root {
+       
+       --primary-pink: #ff4a7d;
+       --primary-red: #e63946;
+       --dark-pink: #c92a54;
+       --light-pink: #fff0f3;
+       --accent-rose: #ffccd5;
+       
+      
+       --bg-gradient: linear-gradient(135deg, #ffe5ec 0%, #ffccd5 100%);
+       --card-bg: #ffffff;
+       --text-main: #2b2d42;
+       --text-muted: #6c757d;
+       --status-pending-bg: #fff5f6;
+       --status-pending-border: #ffb3c1;
+       --status-done-bg: #f0fff4;
+       --status-done-text: #2f855a;
+       --status-done-border: #c6f6d5;
+       
+       
+       --shadow-sm: 0 4px 6px rgba(230, 57, 70, 0.05);
+       --shadow-md: 0 10px 20px rgba(230, 57, 70, 0.1);
+       --radius-sm: 8px;
+       --radius-md: 14px;
+       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+   
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+   }
+   
+   body {
+       font-family: 'Poppins', sans-serif;
+       background: var(--bg-gradient);
+       min-height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       padding: 20px;
+       color: var(--text-main);
+   }
+   
+  
+   .aplicacao {
+       background-color: var(--card-bg);
+       width: 100%;
+       max-width: 550px;
+       padding: 40px 30px;
+       border-radius: var(--radius-md);
+       box-shadow: var(--shadow-md);
+   }
+   
+   h1 {
+       font-size: 24px;
+       font-weight: 700;
+       color: var(--primary-red);
+       text-align: center;
+       margin-bottom: 8px;
+   }
+   
+   .aplicacao > p {
+       font-size: 14px;
+       color: var(--text-muted);
+       text-align: center;
+       margin-bottom: 30px;
+   }
+   
+  
+   .tarefasCadastro {
+       margin-bottom: 25px;
+   }
+   
+   .tarefasCadastro label {
+       display: block;
+       font-size: 14px;
+       font-weight: 600;
+       margin-bottom: 8px;
+       color: var(--dark-pink);
+       text-transform: uppercase;
+       letter-spacing: 0.5px;
+   }
+   
+   .tarefasLinhas {
+       display: flex;
+       gap: 12px;
+   }
+   
+   #input-titulo {
+       flex: 1;
+       padding: 14px 16px;
+       font-family: inherit;
+       font-size: 14px;
+       border: 2px solid var(--accent-rose);
+       border-radius: var(--radius-sm);
+       outline: none;
+       transition: var(--transition);
+   }
+   
+   #input-titulo:focus {
+       border-color: var(--primary-pink);
+       box-shadow: 0 0 0 4px rgba(255, 74, 125, 0.15);
+   }
+   
+   #btn-adicionar {
+       background-color: var(--primary-pink);
+       color: white;
+       border: none;
+       padding: 0 20px;
+       font-family: inherit;
+       font-size: 14px;
+       font-weight: 600;
+       border-radius: var(--radius-sm);
+       cursor: pointer;
+       transition: var(--transition);
+       white-space: nowrap;
+   }
+   
+   #btn-adicionar:hover {
+       background-color: var(--dark-pink);
+       transform: translateY(-1px);
+   }
+   
+   #btn-adicionar:active {
+       transform: translateY(1px);
+   }
+   
+ 
+   .mensagem {
+       padding: 12px;
+       border-radius: var(--radius-sm);
+       font-size: 13px;
+       font-weight: 500;
+       text-align: center;
+       margin-bottom: 25px;
+       transition: var(--transition);
+   }
+   
+   .mensagem.aguardando {
+       background-color: var(--light-pink);
+       color: var(--dark-pink);
+   }
+   
+   .mensagem.sucesso {
+       background-color: #e6fffa;
+       color: #0284c7;
+       border: 1px solid #bae6fd;
+   }
+   
+   .mensagem.erro {
+       background-color: #fff5f5;
+       color: var(--primary-red);
+       border: 1px solid #fed7d7;
+   }
+   
+   
+   .painel h2 {
+       font-size: 18px;
+       color: var(--text-main);
+       margin-bottom: 15px;
+       font-weight: 600;
+   }
+   
+   .lista-tarefas {
+       list-style: none;
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+       margin-bottom: 25px;
+       max-height: 350px;
+       overflow-y: auto;
+       padding-right: 4px;
+   }
+   
+  
+   .lista-tarefas::-webkit-scrollbar {
+       width: 6px;
+   }
+   .lista-tarefas::-webkit-scrollbar-thumb {
+       background: var(--accent-rose);
+       border-radius: 10px;
+   }
+   
+   
+   .lista-tarefas .lista, 
+   .lista-tarefas .tarefa {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       padding: 14px 16px;
+       background-color: var(--status-pending-bg);
+       border: 1px solid var(--status-pending-border);
+       border-radius: var(--radius-sm);
+       transition: var(--transition);
+       animation: fadeIn 0.3s ease;
+   }
+   
+
+   .lista-tarefas .tarefa {
+       color: var(--text-muted);
+       font-style: italic;
+       justify-content: center;
+       border-style: dashed;
+       background: transparent;
+   }
+   
+   .titulo-tarefa {
+       flex: 1;
+       font-size: 14px;
+       font-weight: 500;
+       word-break: break-word;
+       transition: var(--transition);
+   }
+   
+   .btn-status, .btn-excluir {
+       font-family: inherit;
+       font-size: 12px;
+       font-weight: 500;
+       padding: 6px 12px;
+       border-radius: 6px;
+       cursor: pointer;
+       border: none;
+       transition: var(--transition);
+   }
+   
+  
+   .btn-status {
+       background-color: var(--light-pink);
+       color: var(--dark-pink);
+   }
+   .btn-status:hover {
+       background-color: var(--accent-rose);
+   }
+   
+
+   .btn-excluir {
+       background-color: transparent;
+       color: var(--text-muted);
+   }
+   .btn-excluir:hover {
+       background-color: rgba(230, 57, 70, 0.1);
+       color: var(--primary-red);
+   }
+   
+
+   .lista-tarefas .lista.feito {
+       background-color: var(--status-done-bg);
+       border-color: var(--status-done-border);
+   }
+   
+   .lista.feito .titulo-tarefa {
+       color: var(--status-done-text);
+       text-decoration: line-through;
+       opacity: 0.6;
+   }
+   
+   .lista.feito .btn-status {
+       background-color: rgba(47, 133, 90, 0.1);
+       color: var(--status-done-text);
+   }
+   
+   .lista.feito .btn-status:hover {
+       background-color: rgba(47, 133, 90, 0.2);
+   }
+   
+
+   #btn-excluirConcluidas {
+       width: 100%;
+       background-color: transparent;
+       border: 2px solid var(--primary-red);
+       color: var(--primary-red);
+       padding: 12px;
+       font-family: inherit;
+       font-size: 14px;
+       font-weight: 600;
+       border-radius: var(--radius-sm);
+       cursor: pointer;
+       transition: var(--transition);
+   }
+   
+   #btn-excluirConcluidas:hover {
+       background-color: var(--primary-red);
+       color: white;
+       box-shadow: var(--shadow-sm);
+   }
+   
+   
+   @keyframes fadeIn {
+       from { opacity: 0; transform: translateY(8px); }
+       to { opacity: 1; transform: translateY(0); }
+   }
+   

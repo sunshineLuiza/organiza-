@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Organiza+</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/95/49/cb/9549cb5a79a6064cdd2caab0fb1b00a6.jpg" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="aplicacao">
+        <h1>Minha Lista de Tarefas!</h1>
+        <p>Adicione tarefas e organize sua rotina, administrando seus afazeres.</p>
+
+        <section class="tarefasCadastro">
+            <label for="input-titulo">Tarefas</label>
+            <div class="tarefasLinhas">
+                <input id="input-titulo" type="text" placeholder="Ex: Organizar documentos">
+                <button id="btn-adicionar" type="button">Adicionar tarefa!</button>
+            </div>
+        </section>
+
+        <p id="mensagem" class="mensagem">Aguandando tarefas...</p>
+
+        <section class="painel">
+            <h2>Tarefas cadastradas</h2>
+            <ul id="lista-tarefas" class="lista-tarefas"></ul>
+            <button id="btn-excluirConcluidas">Excluir tarefas concluidas!</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
